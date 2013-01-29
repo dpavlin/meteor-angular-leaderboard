@@ -31,11 +31,13 @@ home = [
       else
         $scope.Players.insert player
         console.log 'insert', player
-      $scope.edit_player = { name: '', score: 0 }
+      $scope.reset_form
     $scope.save_button_text = (player) ->
-        console.log player._id
-        return 'update' if player._id
-        return 'add'
+      console.log player._id
+      return 'update' if player._id
+      return 'add'
+    $scope.reset_form = () ->
+      $scope.edit_player = { name: '', score: 0 }
 ]
 
 # create app with home route with pushstate 
