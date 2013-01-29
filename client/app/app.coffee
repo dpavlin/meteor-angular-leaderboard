@@ -16,7 +16,9 @@ home = [
       play.$save()
     $scope.toggleSelect = (i) -> 
       $scope.selected = i
+      Session.set('selected', i);
     $scope.sel = (i) ->
+      $scope.selected = Session.get('selected')
       if $scope.selected is i then 'selected' else ''
 ]
 
