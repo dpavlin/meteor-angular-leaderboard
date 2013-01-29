@@ -19,6 +19,7 @@ home = [
       Session.set 'selected', i
       console.log 'selected', i, player
       $scope.edit_player = player
+      $scope.save_button_text = 'Edit'
     $scope.sel = (i) ->
       $scope.selected = Session.get('selected')
       if $scope.selected is i then 'selected' else ''
@@ -31,13 +32,11 @@ home = [
       else
         $scope.Players.insert player
         console.log 'insert', player
-      $scope.reset_form
-    $scope.save_button_text = (player) ->
-      console.log player._id
-      return 'update' if player._id
-      return 'add'
+      $scope.reset_form()
     $scope.reset_form = () ->
       $scope.edit_player = { name: '', score: 0 }
+      $scope.save_button_text = 'Add'
+    $scope.reset_form()
 ]
 
 # create app with home route with pushstate 
