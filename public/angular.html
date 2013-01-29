@@ -3,8 +3,14 @@
         <div class="title">
           Leaderboard
         </div>
+        <form id="new_player" class="container">
+	  <input type="text" ng-model="edit_player.name" name="name" />
+          <input type="number" ng-model="edit_player.score" name="score" />
+	  <button ng-click="save_player(edit_player)">{{save_button_text(edit_player)}}</button>
+{{edit_player}}
+        </form>
         <div class="container">
-          <div class="player" ng-repeat="play in players | orderBy: name | orderBy: score" ng-class="sel($index)" ng-click="toggleSelect($index)">
+          <div class="player" ng-repeat="play in players | orderBy: name | orderBy: score" ng-class="sel($index)" ng-click="toggleSelect($index, play)">
           	<span class="name">{{play.name}}</span>
       		  <span class="score">{{play.score}}</span>
       		  <span class="love" ng-click="addLove(play)">
